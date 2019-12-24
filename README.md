@@ -1,1 +1,1 @@
-This is the MDN Django Tutorial that created a local library
+This is the MDN Django Tutorial. This tutorial creates a catalog of a local library.
