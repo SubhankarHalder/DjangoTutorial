@@ -1,0 +1,1 @@
+This is the MDN Django Tutorial that created a local library
