@@ -34,6 +34,13 @@ class Book(models.Model):
     language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
 
 
+    def display_genre(self):
+        """ Create a string for the Genre. This is required to display genre in Admin """
+        return ', '.join(genre.name for genre in self.genre.all()[:3])
+
+    display_genre.short_description = 'Genre'
+
+
 
     def __str__(self):
         """ String for representing the Model object """
@@ -70,7 +77,7 @@ class BookInstance(models.Model):
 
     def __str__(self):
         """ String for representing the Model object """
-        return f'{self.id}({self.book.title})'
+        return f'{self.book.title}'
 
 class Author(models.Model):
     """ Model representing an author """
@@ -85,4 +92,9 @@ class Author(models.Model):
     def get_absolute_url(self):
         """ String for representing the Model object """
         return f'{self.last_name},{self.first_name}'
+
+    def __str__(self):
+        """ String for representing Author object """
+        return f'{self.last_name}, {self.first_name}'
+
 
